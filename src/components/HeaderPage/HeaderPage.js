@@ -19,7 +19,7 @@ function classNames(...classes) {
 
 function HeaderPage() {
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav" className="relative z-20">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
