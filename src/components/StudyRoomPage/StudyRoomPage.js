@@ -312,8 +312,246 @@ function StudyRoomPage() {
         </div>
       </div>
 
+      <div className="bg-white">
+        <div className="max-w-2xl mx-auto py-16 px-2 items-center gap-x-8 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 ">
+          <div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl italic mb-2">
+              <span className="text-green-600">F</span>acility
+            </h2>
+            <p className=" text-gray-500 mb-1">
+              복사와 프린터는 셀프로 이용이 가능합니다. <br />
+              커피와 음료는 섭취가 가능하나 다른 외부음식은 반입이 불가 합니다.
+              <br />
+              촬영장비 무료로 대여가 가능하며, 캠이 내장된 노트북은 유로로
+              대여가 가능합니다.{" "}
+            </p>
+            <h3 className="text-green-600">__</h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 mt-10">
+            <div
+              className="p-3 rounded-lg flex items-end"
+              style={{
+                backgroundImage: "url('images/studyroom/facility3.jpg')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                width: "100%",
+                height: "300px",
+              }}
+            >
+              <div className="bg-gray-700 bg-opacity-50 p-3 w-full">
+                <dt className="font-medium text-white mb-2">프린트 및 복사</dt>
+                <dd className="mb-1 text-sm text-gray-200">컬러: 300원/1장</dd>
+                <dd className="mb-1 text-sm text-gray-200">흑백: 100원/1장</dd>
+              </div>
+            </div>
+            <div
+              className="p-3 rounded-lg flex items-end"
+              style={{
+                backgroundImage: "url('images/studyroom/facility1.jpg')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                width: "100%",
+                height: "300px",
+              }}
+            >
+              <div className="bg-gray-700 bg-opacity-50 p-3 w-full">
+                <dt className="font-medium text-white mb-2">커피 및 음료</dt>
+                <dd className="mb-1 text-sm text-gray-200">
+                  아메리카노 무료제공
+                </dd>
+                <dd className="mb-1 text-sm text-gray-200">얼음정수기</dd>
+              </div>
+            </div>
+            <div
+              className="p-3 rounded-lg flex items-end"
+              style={{
+                backgroundImage: "url('images/studyroom/facility2.jpg')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                width: "100%",
+                height: "300px",
+              }}
+            >
+              <div className="bg-gray-700 bg-opacity-50 p-3 w-full">
+                <dt className="font-medium text-white mb-2">조명 및 삼각대</dt>
+                <dd className="mb-1 text-sm text-gray-200">
+                  유투브, 화상면접용 지속조명 무료대여
+                </dd>
+                <dd className="mb-1 text-sm text-gray-200">
+                  카메라, 휴대폰 거치 삼각대 무료대여
+                </dd>
+              </div>
+            </div>
+            <div
+              className="p-3 rounded-lg flex items-end"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                width: "100%",
+                height: "300px",
+              }}
+            >
+              <div className="bg-gray-700 bg-opacity-50 p-3 w-full">
+                <dt className="font-medium text-white mb-2">노트북 대여</dt>
+                <dd className="mb-1 text-sm text-gray-200">
+                  비용: 시간당 2,000원
+                </dd>
+                <dd className="mb-1 text-sm text-gray-200">
+                  화상면접용, 업무용
+                </dd>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="py-16"
+        style={{
+          backgroundAttachment: "fixed",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1495576775051-8af0d10f19b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=617&q=80')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="max-w-7xl mx-auto pt-8 px-2 lg:pt-8  lg:flex lg:items-center lg:justify-between">
+          <div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl italic mb-2">
+              <span className="text-green-600">네이버예약</span> 사용방법
+            </h2>
+            <p className=" text-gray-500 mb-1">
+              복사와 프린터는 셀프로 이용이 가능합니다. <br />
+              커피와 음료는 섭취가 가능하나 다른 외부음식은 반입이 불가 합니다.
+              <br />
+              촬영장비 무료로 대여가 가능하며, 캠이 내장된 노트북은 유로로
+              대여가 가능합니다.{" "}
+            </p>
+            <h3 className="text-green-600">__</h3>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto py-4 px-2 lg:flex lg:items-center lg:justify-between rounded-xl">
+          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4">
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2 bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 1단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                네이버예약 페이지에서 "날짜와 시간을 선택하세요"를 클릭!
+              </h4>
+              <img
+                src="images/studyroom/naver1.jpg"
+                alt="아이캔 네이버예약1"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 2단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                예약이 필요한 날짜를 선택하시면 아래쪽에 시간을 선택할 수 있어요
+              </h4>
+              <img
+                src="images/studyroom/naver2.jpg"
+                alt="아이캔 네이버예약2"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 3단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                시작시간선택 그리고 종료시간선택을 누르면 연속을 체크됩니다
+              </h4>
+              <img
+                src="images/studyroom/naver3.jpg"
+                alt="아이캔 네이버예약3"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 4단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                선택한 날짜와 시간의 예약가능한 모든룸이 나열됩니다.
+              </h4>
+              <img
+                src="images/studyroom/naver4.jpg"
+                alt="아이캔 네이버예약4"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 5단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                사용하고자 하는 룸을 선택한 후 다음화면에서 시간을 다시 선택!
+              </h4>
+              <img
+                src="images/studyroom/naver5.jpg"
+                alt="아이캔 네이버예약5"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 6단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                비용을 다시 확인하고 필수입력란에 내용을 작성!!
+              </h4>
+              <img
+                src="images/studyroom/naver7.jpg"
+                alt="아이캔 네이버예약7"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 7단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                취소/환불 규정을 확인 후 결제하기 버튼을 클릭!!
+              </h4>
+              <img
+                src="images/studyroom/naver8.jpg"
+                alt="아이캔 네이버예약8"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+            <div className="flex flex-col bg-green-600 shadow-xl rounded-md overflow-hidden p-2  bg-opacity-70 drop-shadow-2xl justify-between">
+              <h3 className="px-2 text-lg text-white font-bold mb-1">
+                네이버예약 8단계
+              </h3>
+              <h4 className="px-2 text-sm font-light text-white mb-3">
+                원하는 결제수단을을 선택후 결제를 진행하시면 됩니다.
+              </h4>
+              <img
+                src="images/studyroom/naver9.jpg"
+                alt="아이캔 네이버예약9"
+                className=""
+                style={{ width: "100%", minHeight: "" }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <div className="max-w-7xl mx-auto py-12 px-2 sm:px-6 lg:py-16  lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             <span className="block">아이캔 스터디룸 에약은?</span>
             <span className="block text-green-600">
@@ -328,7 +566,7 @@ function StudyRoomPage() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
               >
-                네이버예약 바로가기
+                네이버예약
               </a>
             </div>
             <div className="ml-3 inline-flex rounded-md shadow">
@@ -336,9 +574,9 @@ function StudyRoomPage() {
                 href="https://blog.naver.com/PostList.nhn?blogId=himzei&from=postList&categoryNo=70"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-indigo-50"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-green-500"
               >
-                스터디룸 시설보기(블로그)
+                네이버블로그
               </a>
             </div>
           </div>
