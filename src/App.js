@@ -6,10 +6,9 @@ import MainPage from "./components/MainPage/MainPage";
 import firebase from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser, setUser } from "./redux/actions/user_action";
-
-import Tail from "./components/Sides/Tail";
 import HeaderPage from "./components/HeaderPage/HeaderPage";
 import TailPage from "./components/TailPage/TailPage";
+import StudyRoomPage from "./components/StudyRoomPage/StudyRoomPage";
 
 function App() {
   let history = useHistory();
@@ -39,6 +38,7 @@ function App() {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/studyroom" component={StudyRoomPage} />
         </Switch>
         <TailPage />
       </>
