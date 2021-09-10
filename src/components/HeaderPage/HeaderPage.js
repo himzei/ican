@@ -4,7 +4,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "HOME", href: "#", current: false },
+  { name: "HOME", href: "/", current: false },
   { name: "스터디룸", href: "/studyroom", current: false },
   { name: "출장촬영", href: "#", current: false },
   { name: "화상영어", href: "#", current: false },

@@ -5,7 +5,7 @@ function TailPage() {
   return (
     <>
       <div className="py-16 bg-gray-700 divide-y divide-gray-500">
-        <div className="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+        <div className="max-w-7xl mx-auto px-2 pb-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
           <div className="text-gray-400">
             <h3 className="text-sm mb-3 font-bold text-gray-300">스터디룸</h3>
             <h4 className="text-sm mb-3">스터디룸 안내</h4>
@@ -43,7 +43,7 @@ function TailPage() {
             <h4 className="text-sm mb-3">주변주차장</h4>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 pt-4 sm:px-6 lg:px-8 flex flex-col items-center sm:flex-row sm:justify-between ">
+        <div className="max-w-7xl mx-auto px-2 pt-4 sm:px-6 lg:px-8 flex flex-col items-center sm:flex-row sm:justify-between ">
           <span className="text-gray-400 py-2">
             &copy; {new Date().getFullYear()} ICAN, All rights reserved
           </span>
