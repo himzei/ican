@@ -9,14 +9,15 @@ import "firebase/storage";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   databaseURL:
-    "https://jongman-b37f2-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  apiKey: "AIzaSyBG6MO6DeRI1yBE4Jb56j9bkuhM1mHw0ns",
-  authDomain: "jongman-b37f2.firebaseapp.com",
-  projectId: "jongman-b37f2",
-  storageBucket: "jongman-b37f2.appspot.com",
-  messagingSenderId: "1070697805409",
-  appId: "1:1070697805409:web:e037c3fe3219e6a8e79c20",
-  measurementId: "G-Q86SHQRNVM",
+    "https://ican-13bfe-default-rtdb.asia-southeast1.firebasedatabase.app",
+  apiKey: "AIzaSyDrGnmOr1T_FvkUE_xT_LELANYuR_GaIBQ",
+  authDomain: "ican-13bfe.firebaseapp.com",
+  databaseURL:
+    "https://ican-13bfe-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "ican-13bfe",
+  storageBucket: "ican-13bfe.appspot.com",
+  messagingSenderId: "100415578726",
+  appId: "1:100415578726:web:17cb3b3f8f635b531383a7",
 };
 
 // Initialize Firebase
