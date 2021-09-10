@@ -8,8 +8,6 @@ import "firebase/storage";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  databaseURL:
-    "https://ican-13bfe-default-rtdb.asia-southeast1.firebasedatabase.app",
   apiKey: "AIzaSyDrGnmOr1T_FvkUE_xT_LELANYuR_GaIBQ",
   authDomain: "ican-13bfe.firebaseapp.com",
   databaseURL:
