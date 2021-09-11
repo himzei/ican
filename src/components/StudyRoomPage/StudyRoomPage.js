@@ -4,7 +4,7 @@ function StudyRoomPage() {
   return (
     <>
       <div
-        className="bg-white absolute top-0 w-full h-1/2 flex justify-center items-center"
+        className="bg-white w-full h-96 mb-16 flex justify-center items-center"
         style={{
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -13,18 +13,16 @@ function StudyRoomPage() {
         }}
       >
         <div className="flex flex-col">
-          <h1 className="font-extrabold text-5xl text-center">
-            대구 <span className="text-blue-500">취업성공 문화공간</span>
-          </h1>
-          <h2 className="text-xl text-center">
+          <h1 className="font-extrabold text-4xl text-center">스터디룸</h1>
+          <h2 className="text-lg text-center">
             #대구스터디룸 #대구취업스터디 #대구임용스터디 #대구면접스터디
-            #대구스터디카페 #동성로스터디룸 <br />
-            #동성로취업스터디 #동성로스터디룸 #동성로임용스터디
+            #대구스터디카페 <br />
+            #동성로취업스터디 #동성로스터디룸 #동성로임용스터디 #동성로스터디룸
           </h2>
         </div>
       </div>
 
-      <div className="bg-white mt-96">
+      <div className="bg-white relative">
         <div className="max-w-2xl mx-auto pt-16 px-2 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">

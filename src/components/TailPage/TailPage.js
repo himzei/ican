@@ -45,7 +45,7 @@ function TailPage() {
         </div>
         <div className="max-w-7xl mx-auto px-2 pt-4 sm:px-6 lg:px-8 flex flex-col items-center sm:flex-row sm:justify-between ">
           <span className="text-gray-400 py-2">
-            &copy; {new Date().getFullYear()} ICAN, All rights reserved
+            &copy; {new Date().getFullYear()} ICAN All rights reserved
           </span>
           <span className="flex text-gray-400 text-2xl py-2">
             <div className="bg-gray-400 rounded-full flex items-center justify-center w-6 h-6 mr-4">

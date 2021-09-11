@@ -9,6 +9,7 @@ import { clearUser, setUser } from "./redux/actions/user_action";
 import HeaderPage from "./components/HeaderPage/HeaderPage";
 import TailPage from "./components/TailPage/TailPage";
 import StudyRoomPage from "./components/StudyRoomPage/StudyRoomPage";
+import PhotographPage from "./components/PhotographPage/PhotographPage";
 
 function App() {
   let history = useHistory();
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/studyroom" component={StudyRoomPage} />
+          <Route exact path="/photograph" component={PhotographPage} />
         </Switch>
         <TailPage />
       </>

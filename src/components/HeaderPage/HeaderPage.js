@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const navigation = [
   { name: "HOME", href: "/", current: false },
   { name: "스터디룸", href: "/studyroom", current: false },
-  { name: "출장촬영", href: "#", current: false },
+  { name: "출장촬영", href: "/photograph", current: false },
   { name: "화상영어", href: "#", current: false },
   { name: "필리핀캠프", href: "#", current: false },
   { name: "블로그", href: "#", current: false },
@@ -18,8 +18,27 @@ function classNames(...classes) {
 }
 
 function HeaderPage() {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 20) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBackground);
+
   return (
-    <Disclosure as="nav" className="relative z-20">
+    <Disclosure
+      as="nav"
+      className={
+        navbar
+          ? "sticky-top z-20 bg-white transition duration-500 ease-in-out"
+          : "absolute w-full z-20 transition duration-500 ease-in-out"
+      }
+    >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
