@@ -13,8 +13,10 @@ function StudyRoomPage() {
         }}
       >
         <div className="flex flex-col">
-          <h1 className="font-extrabold text-4xl text-center">스터디룸</h1>
-          <h2 className="text-lg text-center">
+          <h1 className="font-extrabold text-4xl text-gray-500 text-center">
+            스터디룸
+          </h1>
+          <h2 className="text-lg text-gray-500 text-center font-light">
             #대구스터디룸 #대구취업스터디 #대구임용스터디 #대구면접스터디
             #대구스터디카페 <br />
             #동성로취업스터디 #동성로스터디룸 #동성로임용스터디 #동성로스터디룸
@@ -568,9 +570,9 @@ function StudyRoomPage() {
       </div>
 
       <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-12 px-2 sm:px-6 lg:py-16  lg:flex lg:items-center lg:justify-between">
+        <div className="max-w-7xl mx-auto py-16 px-2 sm:px-6 lg:py-24  lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            <span className="block">아이캔 스터디룸 에약은?</span>
+            <span className="block">아이캔 스터디룸 예약은?</span>
             <span className="block text-green-600">
               네이버 예약으로 하세요!!
             </span>
