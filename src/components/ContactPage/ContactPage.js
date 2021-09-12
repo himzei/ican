@@ -9,14 +9,14 @@ const options = {
 };
 const options1 = {
   center: new window.kakao.maps.LatLng(35.87123829020304, 128.5977126334066), //지도의 중심좌표.
-  level: 2, //지도의 레벨(확대, 축소 정도)
+  level: 1, //지도의 레벨(확대, 축소 정도)
 };
 const options2 = {
   center: new window.kakao.maps.LatLng(35.87122690185686, 128.59740983666458), //지도의 중심좌표.
-  level: 2, //지도의 레벨(확대, 축소 정도)
+  level: 1, //지도의 레벨(확대, 축소 정도)
 };
 const options3 = {
-  center: new window.kakao.maps.LatLng(35.87048011050053, 128.59799604501268), //지도의 중심좌표.
+  center: new window.kakao.maps.LatLng(35.87109843863322, 128.5977555388409), //지도의 중심좌표.
   level: 3, //지도의 레벨(확대, 축소 정도)
 };
 const options4 = {
@@ -46,6 +46,7 @@ function ContactPage() {
       position: markerPosition,
     });
     marker.setMap(map);
+    map.addOverlayMapTypeId(window.kakao.maps.MapTypeId.TRAFFIC);
 
     let markerPosition1 = new window.kakao.maps.LatLng(
       35.87110318481472,
@@ -406,7 +407,7 @@ function ContactPage() {
             <h3 className="text-green-600">__</h3>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 mt-10">
-            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+            <div className="flex flex-col bg-gray-500 overflow-hidden rounded-lg shadow-md">
               <div
                 className="map1 mb-2"
                 ref={container1}
@@ -424,7 +425,7 @@ function ContactPage() {
                 </h4>
               </div>
             </div>
-            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+            <div className="flex flex-col bg-gray-500 overflow-hidden rounded-lg shadow-md">
               <div
                 className="map2 mb-2"
                 ref={container2}
@@ -442,7 +443,7 @@ function ContactPage() {
                 </h4>
               </div>
             </div>
-            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+            <div className="flex flex-col bg-gray-500 overflow-hidden rounded-lg shadow-md">
               <div
                 className="map3 mb-2"
                 ref={container3}
@@ -460,7 +461,7 @@ function ContactPage() {
                 </h4>
               </div>
             </div>
-            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+            <div className="flex flex-col bg-gray-500 overflow-hidden rounded-lg shadow-md">
               <div
                 className="map4 mb-2"
                 ref={container4}
