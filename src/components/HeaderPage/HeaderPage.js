@@ -10,7 +10,7 @@ const navigation = [
   { name: "화상영어", href: "#", current: false },
   { name: "필리핀캠프", href: "#", current: false },
   { name: "블로그", href: "#", current: false },
-  { name: "CONTACT", href: "#", current: false },
+  { name: "CONTACT", href: "contact", current: false },
 ];
 
 function classNames(...classes) {

@@ -10,6 +10,7 @@ import HeaderPage from "./components/HeaderPage/HeaderPage";
 import TailPage from "./components/TailPage/TailPage";
 import StudyRoomPage from "./components/StudyRoomPage/StudyRoomPage";
 import PhotographPage from "./components/PhotographPage/PhotographPage";
+import ContactPage from "./components/ContactPage/ContactPage";
 
 function App() {
   let history = useHistory();
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/studyroom" component={StudyRoomPage} />
           <Route exact path="/photograph" component={PhotographPage} />
+          <Route exact path="/contact" component={ContactPage} />
         </Switch>
         <TailPage />
       </>
