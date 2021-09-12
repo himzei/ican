@@ -83,6 +83,22 @@ function ContactPage() {
     });
     marker4.setMap(map4);
 
+    let imageSrc =
+      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+    const maps = [map1, map2, map3, map4];
+
+    for (let i = 0; i < 4; i++) {
+      let imageSize = new window.kakao.maps.Size(30, 45);
+      let markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
+      let icanMarker = new window.kakao.maps.Marker({
+        position: options.center,
+        title: "아이캔",
+        image: markerImage,
+      });
+      icanMarker.setMap(maps[i]);
+    }
+
     return () => {};
   }, []);
 
@@ -376,7 +392,7 @@ function ContactPage() {
         </div>
       </div>
 
-      <div className="bg-white">
+      <div className="bg-gray-100">
         <div className="max-w-2xl mx-auto py-16 px-2 items-center gap-x-8 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 ">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl italic mb-2">
@@ -390,31 +406,78 @@ function ContactPage() {
             <h3 className="text-green-600">__</h3>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 mt-10">
-            <div className="flex flex-col">
+            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
               <div
-                className="map1 rounded-xl border-2 border-green-500"
+                className="map1 mb-2"
                 ref={container1}
                 style={{ width: "100%", height: "300px", minHeight: "300px" }}
               ></div>
-              <div>
-                <h3 className="text-lg font-medium">노보텔지하주차장</h3>
+              <div className="p-2">
+                <h3 className="text-lg font-medium mb-2 text-white px-2">
+                  노보텔 지하주차장(하이파킹)
+                </h3>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  주소 : 대구 중구 국채보상로 611
+                </h4>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  전화 : 1522-0000
+                </h4>
               </div>
             </div>
-            <div
-              className="map2 rounded-xl  border-2 border-green-500"
-              ref={container2}
-              style={{ width: "100%", height: "300px", minHeight: "300px" }}
-            ></div>
-            <div
-              className="map3 rounded-xl  border-2 border-green-500"
-              ref={container3}
-              style={{ width: "100%", height: "300px", minHeight: "300px" }}
-            ></div>
-            <div
-              className="map4 rounded-xl  border-2 border-green-500"
-              ref={container4}
-              style={{ width: "100%", height: "300px", minHeight: "300px" }}
-            ></div>
+            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+              <div
+                className="map2 mb-2"
+                ref={container2}
+                style={{ width: "100%", height: "300px", minHeight: "300px" }}
+              ></div>
+              <div className="p-2">
+                <h3 className="text-lg font-medium mb-2 text-white px-2">
+                  다래 민영 주차장
+                </h3>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  주소 : 대구 중구 문화동 12-21
+                </h4>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  전화 : 010-6285-2027
+                </h4>
+              </div>
+            </div>
+            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+              <div
+                className="map3 mb-2"
+                ref={container3}
+                style={{ width: "100%", height: "300px", minHeight: "300px" }}
+              ></div>
+              <div className="p-2">
+                <h3 className="text-lg font-medium mb-2 text-white px-2">
+                  다래 민영 주차장
+                </h3>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  주소 : 대구 중구 동성로2길 80
+                </h4>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  전화 : 053-252-2193
+                </h4>
+              </div>
+            </div>
+            <div className="flex flex-col bg-green-600 overflow-hidden rounded-lg shadow-md">
+              <div
+                className="map4 mb-2"
+                ref={container4}
+                style={{ width: "100%", height: "300px", minHeight: "300px" }}
+              ></div>
+              <div className="p-2">
+                <h3 className="text-lg font-medium mb-2 text-white px-2">
+                  시청광장공영유료주차장
+                </h3>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  주소 : 대구 중구 국채보상로131길 17
+                </h4>
+                <h4 className="text-sm font-light text-white px-2 mb-1">
+                  전화 : 053-803-5604
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
