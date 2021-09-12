@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function PhotographPage() {
   return (
@@ -25,7 +26,7 @@ function PhotographPage() {
         </div>
       </div>
 
-      <div className="pt-24 bg-white">
+      <div className="py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base text-green-600 font-semibold tracking-wide uppercase">
@@ -209,8 +210,102 @@ function PhotographPage() {
         </div>
       </div>
 
-      <div className="py-24 bg-gray-500 mt-24">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"></div>
+      <div
+        className="relative bg-white overflow-hidden"
+        style={{
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1527176930608-09cb256ab504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80')",
+        }}
+      >
+        <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+            <div className="sm:max-w-lg">
+              <h1 className="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                증명사진 이력서사진 프로필사진
+              </h1>
+              <p className="mt-4 text-xl text-gray-500"></p>
+            </div>
+            <div>
+              <div className="mt-10">
+                {/* Decorative image grid */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full"
+                >
+                  <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                    <div className="flex items-center space-x-6 lg:space-x-8">
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
+                          <img
+                            src="images/photograph/center1.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="images/photograph/center2.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="images/photograph/center3.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="images/photograph/center4.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="images/photograph/center5.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="images/photograph/center6.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="images/photograph/center7.jpg"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  to="#"
+                  className="inline-block text-center bg-green-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-green-700"
+                >
+                  Shop Collection
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="py-24 bg-white">
@@ -241,10 +336,10 @@ function PhotographPage() {
               <h5 className="text-green-500 text-sm font-medium mb-2">
                 출장촬영
               </h5>
-              <h3 className="text-xl text-gray-500 font-medium mb-2">
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
                 경남 거창대학교 촬영
               </h3>
-              <h4 className="text-lg font-light text-gray-500 ">
+              <h4 className="text-sm mb-4 text-gray-500 h-16">
                 2020년 11월 경남도립거창대하교 현장출력 취업사진 70명
               </h4>
             </div>
@@ -264,10 +359,10 @@ function PhotographPage() {
               <h5 className="text-green-500 text-sm font-medium mb-2">
                 출장촬영
               </h5>
-              <h3 className="text-xl text-gray-500 font-medium mb-2">
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
                 성결대학교 취업사진촬영
               </h3>
-              <h4 className="text-lg font-light text-gray-500 ">
+              <h4 className="text-sm  text-gray-500 h-16">
                 2020년 11월 경기도 안양 성결대학교 후보정 취업사진 50명
               </h4>
             </div>
@@ -287,11 +382,34 @@ function PhotographPage() {
               <h5 className="text-green-500 text-sm font-medium mb-2">
                 출장촬영
               </h5>
-              <h3 className="text-xl text-gray-500 font-medium mb-2">
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
                 중부대학교 취업사진촬영
               </h3>
-              <h4 className="text-lg font-light text-gray-500 ">
+              <h4 className="text-sm  text-gray-500 h-16">
                 2020년 10월 경기도 고양 중부대학교 현장출력 취업사진촬영 50명
+              </h4>
+            </div>
+          </div>
+          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
+            <img
+              src="images/photograph/photograph4.jpg"
+              alt="photograph1"
+              style={{
+                height: "200px",
+                width: "100%",
+                objectFit: "cover",
+                objectPosition: "bottom",
+              }}
+            />
+            <div className="flex flex-col p-3">
+              <h5 className="text-green-500 text-sm font-medium mb-2">
+                출장촬영
+              </h5>
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
+                전남 순천제일대학 취업사진촬영
+              </h3>
+              <h4 className="text-sm mb-4 text-gray-500 h-16">
+                2020년 10월 전남 순천제일대학 현장출력 취업사진 70명
               </h4>
             </div>
           </div>
@@ -310,11 +428,34 @@ function PhotographPage() {
               <h5 className="text-green-500 text-sm font-medium mb-2">
                 출장촬영
               </h5>
-              <h3 className="text-xl text-gray-500 font-medium mb-2">
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
                 성결대학교 취업사진촬영
               </h3>
-              <h4 className="text-lg font-light text-gray-500 ">
+              <h4 className="text-sm  text-gray-500 h-16">
                 2020년 11월 경기도 안양 성결대학교 후보정 취업사진 50명
+              </h4>
+            </div>
+          </div>
+          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
+            <img
+              src="images/photograph/photograph3.jpg"
+              alt="photograph1"
+              style={{
+                height: "200px",
+                width: "100%",
+                objectFit: "cover",
+                objectPosition: "bottom",
+              }}
+            />
+            <div className="flex flex-col p-3">
+              <h5 className="text-green-500 text-sm font-medium mb-2">
+                출장촬영
+              </h5>
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
+                중부대학교 취업사진촬영
+              </h3>
+              <h4 className="text-sm  text-gray-500 h-16">
+                2020년 10월 경기도 고양 중부대학교 현장출력 취업사진촬영 50명
               </h4>
             </div>
           </div>
@@ -333,10 +474,10 @@ function PhotographPage() {
               <h5 className="text-green-500 text-sm font-medium mb-2">
                 출장촬영
               </h5>
-              <h3 className="text-xl text-gray-500 font-medium mb-2">
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
                 경남 거창대학교 촬영
               </h3>
-              <h4 className="text-lg font-light text-gray-500 ">
+              <h4 className="text-sm mb-4 text-gray-500 h-16">
                 2020년 11월 경남도립거창대하교 현장출력 취업사진 70명
               </h4>
             </div>
@@ -356,10 +497,10 @@ function PhotographPage() {
               <h5 className="text-green-500 text-sm font-medium mb-2">
                 출장촬영
               </h5>
-              <h3 className="text-xl text-gray-500 font-medium mb-2">
+              <h3 className="text-xl text-gray-700 font-bold mb-2">
                 성결대학교 취업사진촬영
               </h3>
-              <h4 className="text-lg font-light text-gray-500 ">
+              <h4 className="text-sm  text-gray-500 h-16">
                 2020년 11월 경기도 안양 성결대학교 후보정 취업사진 50명
               </h4>
             </div>

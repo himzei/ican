@@ -37,6 +37,7 @@ function ContactPage() {
     let map2 = new window.kakao.maps.Map(container2.current, options2);
     let map3 = new window.kakao.maps.Map(container3.current, options3);
     let map4 = new window.kakao.maps.Map(container4.current, options4);
+    let imageSrc = "images/contact/icanMarker.png";
 
     let markerPosition = new window.kakao.maps.LatLng(
       35.87143644891383,
@@ -84,12 +85,9 @@ function ContactPage() {
     });
     marker4.setMap(map4);
 
-    let imageSrc =
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+    const maps = [map, map1, map2, map3, map4];
 
-    const maps = [map1, map2, map3, map4];
-
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       let imageSize = new window.kakao.maps.Size(30, 45);
       let markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
       let icanMarker = new window.kakao.maps.Marker({
@@ -451,7 +449,7 @@ function ContactPage() {
               ></div>
               <div className="p-2">
                 <h3 className="text-lg font-medium mb-2 text-white px-2">
-                  다래 민영 주차장
+                  아이파킹 2.28기념중앙공원점
                 </h3>
                 <h4 className="text-sm font-light text-white px-2 mb-1">
                   주소 : 대구 중구 동성로2길 80
