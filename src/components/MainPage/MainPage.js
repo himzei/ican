@@ -1,36 +1,25 @@
 import React from "react";
-import {
-  AnnotationIcon,
-  GlobeAltIcon,
-  LightningBoltIcon,
-  ScaleIcon,
-} from "@heroicons/react/outline";
+import { BookOpenIcon, UsersIcon, CameraIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 const features = [
   {
     name: "스터디룸",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: GlobeAltIcon,
+      "취업준비, 면접연습, 화상면접, 임용면접, 각종모임등이 필요한 고객들을 위한 쾌적한 소규모 스터디 공간을 제공하고 있습니다. ",
+    icon: BookOpenIcon,
   },
   {
     name: "출장촬영",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: ScaleIcon,
+      "취업박람회 이력서사진, 대학취업프로그램 취업사진, 기업 및 기관 사원증 프로필 촬영을 진행합니다.",
+    icon: CameraIcon,
   },
   {
     name: "화상영어",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: LightningBoltIcon,
-  },
-  {
-    name: "필리핀캠프",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: AnnotationIcon,
+      "필리핀 현지에 있는 원어민 선생님이 화상을 통해 학생과 일대일로 영어교육 프로그램을 제공합니다.",
+    icon: UsersIcon,
   },
 ];
 
@@ -62,14 +51,15 @@ function MainPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base text-green-600 font-semibold tracking-wide uppercase">
-              Transactions
+              Services
             </h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              A better way to send money
+              취업성공 문화공간
             </p>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
+              #스터디룸 #취업스터디 #면접스터디 #임용스터디 #출장촬영
+              #박람회사진촬영 #박람회이력서사진 #화상영어 #필리핀화상영어
+              #필리핀캠프 #대학취업프로그램
             </p>
           </div>
 

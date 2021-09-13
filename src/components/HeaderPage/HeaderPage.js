@@ -8,7 +8,6 @@ const navigation = [
   { name: "스터디룸", href: "/studyroom", current: false },
   { name: "출장촬영", href: "/photograph", current: false },
   { name: "화상영어", href: "#", current: false },
-  { name: "필리핀캠프", href: "#", current: false },
   { name: "블로그", href: "#", current: false },
   { name: "CONTACT", href: "contact", current: false },
 ];
