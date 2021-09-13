@@ -140,22 +140,22 @@ function StudyRoomPage() {
         <div className="max-w-2xl mx-auto pt-16 px-2 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
           <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
             <img
-              src="images/studyroom/1.jpg"
+              src="images/studyroom/5.jpg"
               alt="대구스터디룸 아이캔1"
               className="bg-gray-100 rounded-lg"
             />
             <img
-              src="images/studyroom/2.jpg"
+              src="images/studyroom/6.jpg"
               alt="대구스터디룸 아이캔2"
               className="bg-gray-100 rounded-lg"
             />
             <img
-              src="images/studyroom/3.jpg"
+              src="images/studyroom/7.jpg"
               alt="대구스터디룸 아이캔3"
               className="bg-gray-100 rounded-lg"
             />
             <img
-              src="images/studyroom/4.jpg"
+              src="images/studyroom/8.jpg"
               alt="대구스터디룸 아이캔4"
               className="bg-gray-100 rounded-lg"
             />
@@ -308,22 +308,22 @@ function StudyRoomPage() {
           </div>
           <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
             <img
-              src="images/studyroom/1.jpg"
+              src="images/studyroom/9.jpg"
               alt="대구스터디룸 아이캔1"
               className="bg-gray-100 rounded-lg"
             />
             <img
-              src="images/studyroom/2.jpg"
+              src="images/studyroom/10.jpg"
               alt="대구스터디룸 아이캔2"
               className="bg-gray-100 rounded-lg"
             />
             <img
-              src="images/studyroom/3.jpg"
+              src="images/studyroom/11.jpg"
               alt="대구스터디룸 아이캔3"
               className="bg-gray-100 rounded-lg"
             />
             <img
-              src="images/studyroom/4.jpg"
+              src="images/studyroom/12.jpg"
               alt="대구스터디룸 아이캔4"
               className="bg-gray-100 rounded-lg"
             />
@@ -427,6 +427,7 @@ function StudyRoomPage() {
       </div>
 
       <div
+        id="reservation"
         className="py-16"
         style={{
           backgroundAttachment: "fixed",
