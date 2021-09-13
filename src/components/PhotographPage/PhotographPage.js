@@ -220,13 +220,20 @@ function PhotographPage() {
             "url('https://images.unsplash.com/photo-1527176930608-09cb256ab504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80')",
         }}
       >
-        <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+        <div className="pt-16 pb-80 sm:pt-24 sm:py-40 lg:py-48">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
             <div className="sm:max-w-lg">
-              <h1 className="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-                증명사진 이력서사진 프로필사진
+              <h1 className="leading-10 italic text-4xl font font-extrabold tracking-tight text-gray-300 sm:text-5xl">
+                오랜기간 촬영 노하우!
+                <br />
+                깔끔한 보정!!
+                <br /> 신속한 피드백!!!
               </h1>
-              <p className="mt-4 text-xl text-gray-500"></p>
+              <p className="mt-4 text-xl text-gray-400">
+                취업캠프, 취업박람회, 대학 취업지원 프로그램, 재취업 프로그램,
+                고등학생 취업프로그램등 증명사진, 이력서사진, 프로필촬영을
+                진행하고 촤고의 퀄리티로 결과물을 받아 볼 수 있습니다.
+              </p>
             </div>
             <div>
               <div className="mt-10">
@@ -300,7 +307,7 @@ function PhotographPage() {
                   to="#"
                   className="inline-block text-center bg-green-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-green-700"
                 >
-                  Shop Collection
+                  Collection
                 </Link>
               </div>
             </div>
