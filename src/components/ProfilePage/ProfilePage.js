@@ -1,14 +1,10 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import mime from "mime-types";
-import { useForm } from "react-hook-form";
 import firebase from "../../firebase";
 import { setPhotoURL } from "../../redux/actions/user_action";
 
 function ProfilePage() {
-  const { register, errors, handleSubmit } = useForm({
-    mode: "onChange",
-  });
   const inputOpenImageRef = useRef();
 
   const user = useSelector((state) => state.user.currentUser);

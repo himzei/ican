@@ -22,9 +22,6 @@ function App() {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // 로그인이 된 상태
-        history.push("/");
-        // 리덕스 스토어에 유저정보 저장
         dispatch(setUser(user));
       } else {
         dispatch(clearUser());

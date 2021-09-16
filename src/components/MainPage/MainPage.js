@@ -2,6 +2,13 @@ import React from "react";
 import { BookOpenIcon, UsersIcon, CameraIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
+// react-awesome-slider
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+import "react-awesome-slider/dist/styles.css";
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
+
 const features = [
   {
     name: "스터디룸",
@@ -26,26 +33,15 @@ const features = [
 function MainPage() {
   return (
     <>
-      <div
-        className="bg-white w-full h-screen flex justify-center items-center"
-        style={{
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')",
-        }}
+      <AutoplaySlider
+        play={true}
+        cancelOnInteraction={false} // should stop playing on user interaction
+        interval={6000}
       >
-        <div className="flex flex-col">
-          <h1 className="sr-only font-extrabold text-4xl text-gray-500 text-center">
-            스터디룸
-          </h1>
-          <h2 className="sr-only text-lg text-gray-500 text-center font-light">
-            #대구스터디룸 #대구취업스터디 #대구임용스터디 #대구면접스터디
-            #대구스터디카페 <br />
-            #동성로취업스터디 #동성로스터디룸 #동성로임용스터디 #동성로스터디룸
-          </h2>
-        </div>
-      </div>
+        <div data-src="images/main/carousel1.jpeg" />
+        <div data-src="images/main/carousel2.jpeg" />
+        <div data-src="images/main/carousel3.jpeg" />
+      </AutoplaySlider>
 
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
