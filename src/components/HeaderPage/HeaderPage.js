@@ -3,12 +3,15 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+import firebase from "../../firebase";
+
 const navigation = [
   { name: "HOME", href: "/", current: false },
   { name: "스터디룸", href: "/studyroom", current: false },
   { name: "출장촬영", href: "/photograph", current: false },
   { name: "화상영어", href: "#", current: false },
-  { name: "블로그", href: "#", current: false },
+  { name: "블로그", href: "/blog", current: false },
   { name: "CONTACT", href: "contact", current: false },
 ];
 
@@ -17,6 +20,8 @@ function classNames(...classes) {
 }
 
 function HeaderPage() {
+  const user = useSelector((state) => state.user.currentUser);
+
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
@@ -28,6 +33,10 @@ function HeaderPage() {
   };
 
   window.addEventListener("scroll", changeBackground);
+
+  const handleLogout = () => {
+    firebase.auth().signOut();
+  };
 
   return (
     <Disclosure
@@ -100,11 +109,23 @@ function HeaderPage() {
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
+                      {user ? (
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src={user.photoURL}
+                          alt=""
+                        />
+                      ) : (
+                        <span className="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+                          <svg
+                            className="h-full w-full text-gray-300"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                          </svg>
+                        </span>
+                      )}
                     </Menu.Button>
                   </div>
                   <Transition
@@ -118,19 +139,31 @@ function HeaderPage() {
                   >
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Your Profile
-                          </Link>
-                        )}
+                        {({ active }) =>
+                          user ? (
+                            <Link
+                              to="/profile"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              프로필
+                            </Link>
+                          ) : (
+                            <Link
+                              to="#"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              회원가입
+                            </Link>
+                          )
+                        }
                       </Menu.Item>
-                      <Menu.Item>
+                      <Menu.Item className="sr-only">
                         {({ active }) => (
                           <Link
                             to="#"
@@ -144,17 +177,29 @@ function HeaderPage() {
                         )}
                       </Menu.Item>
                       <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="/login"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            로그인
-                          </Link>
-                        )}
+                        {({ active }) =>
+                          user ? (
+                            <span
+                              onClick={handleLogout}
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              로그아웃
+                            </span>
+                          ) : (
+                            <Link
+                              to="/login"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              로그인
+                            </Link>
+                          )
+                        }
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>

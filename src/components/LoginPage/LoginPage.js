@@ -14,6 +14,7 @@ function LoginPage() {
 
   const onSubmit = async (data) => {
     try {
+      console.log(data.password);
       setLoading(true);
       await firebase
         .auth()
@@ -87,17 +88,17 @@ function LoginPage() {
               )}
 
               <label
-                htmlFor="password"
+                htmlFor="password-input"
                 className="mb-1 mt-3 text-md text-gray-500"
               >
                 Password
               </label>
               <input
-                id="password"
+                id="password-input"
                 name="password"
                 type="password"
-                autoComplete="current-password"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                ref={register({ required: true, minLength: 6 })}
               />
               {errors.password && errors.password.type === "required" && (
                 <p className=" text-red-500 font-light">
