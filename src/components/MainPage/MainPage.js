@@ -38,9 +38,53 @@ function MainPage() {
         cancelOnInteraction={false} // should stop playing on user interaction
         interval={6000}
       >
-        <div data-src="images/main/carousel1.jpeg" />
-        <div data-src="images/main/carousel2.jpeg" />
-        <div data-src="images/main/carousel3.jpeg" />
+        <div data-src="images/main/carousel1.jpeg">
+          <div class="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+            <h3 className="tracking-tighter text-6xl font-extrabold text-white text-shadow-md animatie-wiggle animate-fade-in-down mb-3">
+              취업성공 문화공간
+            </h3>
+            <p className="italic tracking-tighter text-3xl text-gray-500 animate-roll animate-fade-in-right mb-4">
+              실용적이고 쾌적한 공간! 가성비 끝판왕 스터디룸!!
+            </p>
+            <Link to="/studyroom">
+              <div className="border rounded-md py-2 px-4 inline-block text-gray-400 hover:border-0 hover:bg-gray-500 hover:text-white animate-fade-in">
+                스터디룸 알아보기
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div data-src="images/main/carousel2.jpeg">
+          <div class="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+            <h3 className="tracking-tighter text-6xl font-extrabold text-white text-shadow-md animatie-wiggle animate-fade-in-down mb-3">
+              출장전문 스튜디오
+            </h3>
+            <p className="italic tracking-tighter text-3xl text-gray-500 animate-roll animate-fade-in-right mb-4">
+              오랜기간 노하우! 정성스런 피드백!!
+            </p>
+            <Link to="/photograph">
+              <div className="border border-gray-600 rounded-md py-2 px-4 inline-block text-gray-400 hover:border-0 hover:bg-gray-500 hover:text-white animate-fade-in">
+                출장촬영 알아보기
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div data-src="images/main/carousel3.jpeg">
+          <div class="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+            <h3 className="tracking-tighter text-6xl font-extrabold text-white text-shadow-md animatie-wiggle animate-fade-in-down mb-3">
+              일대일 화상영어
+            </h3>
+            <p className="italic tracking-tighter font-bold text-3xl text-black animate-roll animate-fade-in-right mb-4">
+              필리핀 현지 선생님과 일대일 영어교육!
+              <br />
+              수준별 영어학습과 매일매일 피드백!!
+            </p>
+            <Link to="/studyroom">
+              <div className="sr-only border rounded-md py-2 px-4 inline-block text-gray-400 hover:border-0 hover:bg-gray-500 hover:text-white animate-fade-in">
+                출장촬영 알아보기
+              </div>
+            </Link>
+          </div>
+        </div>
       </AutoplaySlider>
 
       <div className="py-24 bg-white">

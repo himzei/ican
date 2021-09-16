@@ -10020,6 +10020,40 @@ video {
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-none {
   animation: none;
 }
@@ -10038,6 +10072,18 @@ video {
 
 .animate-bounce {
   animation: bounce 1s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-out;
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 1s ease-out;
 }
 
 .cursor-auto {
@@ -32232,6 +32278,54 @@ video {
   content: none;
 }
 
+.text-shadow {
+  text-shadow: 0 1px 0 #aaa;
+}
+
+.text-shadow-md {
+  text-shadow: 0 2px 2px #000;
+}
+
+.text-shadow-h2 {
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.text-shadow-h1 {
+  text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+}
+
+.hover\:text-shadow:hover {
+  text-shadow: 0 1px 0 #aaa;
+}
+
+.hover\:text-shadow-md:hover {
+  text-shadow: 0 2px 2px #000;
+}
+
+.hover\:text-shadow-h2:hover {
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.hover\:text-shadow-h1:hover {
+  text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+}
+
+.focus\:text-shadow:focus {
+  text-shadow: 0 1px 0 #aaa;
+}
+
+.focus\:text-shadow-md:focus {
+  text-shadow: 0 2px 2px #000;
+}
+
+.focus\:text-shadow-h2:focus {
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.focus\:text-shadow-h1:focus {
+  text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -41606,6 +41700,18 @@ video {
 
   .sm\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .sm\:animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .sm\:animate-fade-in-down {
+    animation: fade-in-down 1s ease-out;
+  }
+
+  .sm\:animate-fade-in-right {
+    animation: fade-in-right 1s ease-out;
   }
 
   .sm\:cursor-auto {
@@ -63446,6 +63552,54 @@ video {
   .sm\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  .sm\:text-shadow {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .sm\:text-shadow-md {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .sm\:text-shadow-h2 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .sm\:text-shadow-h1 {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .sm\:hover\:text-shadow:hover {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .sm\:hover\:text-shadow-md:hover {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .sm\:hover\:text-shadow-h2:hover {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .sm\:hover\:text-shadow-h1:hover {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .sm\:focus\:text-shadow:focus {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .sm\:focus\:text-shadow-md:focus {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .sm\:focus\:text-shadow-h2:focus {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .sm\:focus\:text-shadow-h1:focus {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
 }
 
 @media (min-width: 768px) {
@@ -72822,6 +72976,18 @@ video {
 
   .md\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .md\:animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .md\:animate-fade-in-down {
+    animation: fade-in-down 1s ease-out;
+  }
+
+  .md\:animate-fade-in-right {
+    animation: fade-in-right 1s ease-out;
   }
 
   .md\:cursor-auto {
@@ -94662,6 +94828,54 @@ video {
   .md\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  .md\:text-shadow {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .md\:text-shadow-md {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .md\:text-shadow-h2 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .md\:text-shadow-h1 {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .md\:hover\:text-shadow:hover {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .md\:hover\:text-shadow-md:hover {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .md\:hover\:text-shadow-h2:hover {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .md\:hover\:text-shadow-h1:hover {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .md\:focus\:text-shadow:focus {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .md\:focus\:text-shadow-md:focus {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .md\:focus\:text-shadow-h2:focus {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .md\:focus\:text-shadow-h1:focus {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -104038,6 +104252,18 @@ video {
 
   .lg\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .lg\:animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .lg\:animate-fade-in-down {
+    animation: fade-in-down 1s ease-out;
+  }
+
+  .lg\:animate-fade-in-right {
+    animation: fade-in-right 1s ease-out;
   }
 
   .lg\:cursor-auto {
@@ -125878,6 +126104,54 @@ video {
   .lg\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  .lg\:text-shadow {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .lg\:text-shadow-md {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .lg\:text-shadow-h2 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .lg\:text-shadow-h1 {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .lg\:hover\:text-shadow:hover {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .lg\:hover\:text-shadow-md:hover {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .lg\:hover\:text-shadow-h2:hover {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .lg\:hover\:text-shadow-h1:hover {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .lg\:focus\:text-shadow:focus {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .lg\:focus\:text-shadow-md:focus {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .lg\:focus\:text-shadow-h2:focus {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .lg\:focus\:text-shadow-h1:focus {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
 }
 
 @media (min-width: 1280px) {
@@ -135254,6 +135528,18 @@ video {
 
   .xl\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .xl\:animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .xl\:animate-fade-in-down {
+    animation: fade-in-down 1s ease-out;
+  }
+
+  .xl\:animate-fade-in-right {
+    animation: fade-in-right 1s ease-out;
   }
 
   .xl\:cursor-auto {
@@ -157094,6 +157380,54 @@ video {
   .xl\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  .xl\:text-shadow {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .xl\:text-shadow-md {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .xl\:text-shadow-h2 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .xl\:text-shadow-h1 {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .xl\:hover\:text-shadow:hover {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .xl\:hover\:text-shadow-md:hover {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .xl\:hover\:text-shadow-h2:hover {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .xl\:hover\:text-shadow-h1:hover {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .xl\:focus\:text-shadow:focus {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .xl\:focus\:text-shadow-md:focus {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .xl\:focus\:text-shadow-h2:focus {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .xl\:focus\:text-shadow-h1:focus {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
 }
 
 @media (min-width: 1536px) {
@@ -166470,6 +166804,18 @@ video {
 
   .\32xl\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .\32xl\:animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .\32xl\:animate-fade-in-down {
+    animation: fade-in-down 1s ease-out;
+  }
+
+  .\32xl\:animate-fade-in-right {
+    animation: fade-in-right 1s ease-out;
   }
 
   .\32xl\:cursor-auto {
@@ -188309,5 +188655,53 @@ video {
 
   .\32xl\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .\32xl\:text-shadow {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .\32xl\:text-shadow-md {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .\32xl\:text-shadow-h2 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .\32xl\:text-shadow-h1 {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .\32xl\:hover\:text-shadow:hover {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .\32xl\:hover\:text-shadow-md:hover {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .\32xl\:hover\:text-shadow-h2:hover {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .\32xl\:hover\:text-shadow-h1:hover {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
+  }
+
+  .\32xl\:focus\:text-shadow:focus {
+    text-shadow: 0 1px 0 #aaa;
+  }
+
+  .\32xl\:focus\:text-shadow-md:focus {
+    text-shadow: 0 2px 2px #000;
+  }
+
+  .\32xl\:focus\:text-shadow-h2:focus {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+
+  .\32xl\:focus\:text-shadow-h1:focus {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8), 0 0 5px rgba(0, 0, 0, .9);
   }
 }

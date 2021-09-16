@@ -66,12 +66,12 @@ function HeaderPage() {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="images/logo.jpg"
+                    src="images/logo.png"
                     alt="Workflow"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="images/logo.jpg"
+                    src="images/logo.png"
                     alt="Workflow"
                   />
                 </div>
