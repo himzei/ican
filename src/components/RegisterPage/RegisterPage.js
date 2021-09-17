@@ -35,6 +35,7 @@ function RegisterPage() {
         name: createdUser.user.displayName,
         image: createdUser.user.photoURL,
         email: createdUser.user.email,
+        types: "normal",
       });
 
       setLoading(false);

@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import firebase from "../../firebase";
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
 
 function LoginPage() {

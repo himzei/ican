@@ -40,7 +40,7 @@ function MainPage() {
       >
         <div data-src="images/main/carousel1.jpeg">
           <div class="absolute top-1/2 md:top-1/3 left-1/2 md:left-1/3 transform -translate-x-1/2 -translate-y-1/2">
-            <h3 className="tracking-tighter text-2xl md::text-6xl font-extrabold text-white text-shadow-md animatie-wiggle animate-fade-in-down mb-3">
+            <h3 className="tracking-tighter text-2xl md:text-6xl font-extrabold text-white text-shadow-md animatie-wiggle animate-fade-in-down mb-3">
               취업성공 문화공간
             </h3>
             <p className="italic tracking-tighter text-xl md::text-3xl text-gray-500 animate-roll animate-fade-in-right mb-4">

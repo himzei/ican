@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function BlogPage() {
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <>
       <div
-        className="bg-white w-full h-96 mb-16 flex justify-center items-center"
+        className="bg-white w-full h-96 flex justify-center items-center"
         style={{
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -21,6 +25,19 @@ function BlogPage() {
           </h2>
         </div>
       </div>
+
+      {user?.email === "himzei@email.com" && (
+        <div className="bg-white">
+          <div className="max-w-7xl mx-2 mx-auto flex justify-end ">
+            <Link to="/create-blog">
+              <span className="border inline-block px-4 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white cursor-pointer rounded-md">
+                블로그 글쓰기
+              </span>
+            </Link>
+          </div>
+        </div>
+      )}
+
       <div className="py-24 bg-white">
         <div className="max-w-2xl mx-auto px-2 items-center gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 ">
           <div>
