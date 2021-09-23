@@ -25,7 +25,7 @@ function HeaderPage() {
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
-    if (window.scrollY >= 20) {
+    if (window.scrollY >= 40) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -43,13 +43,13 @@ function HeaderPage() {
       as="nav"
       className={
         navbar
-          ? "sticky-top z-20 bg-white transition duration-500 ease-in-out"
-          : "absolute w-full z-20 transition duration-500 ease-in-out"
+          ? " w-full transition duration-1000 ease-in-out sticky-top z-20 bg-white absolute"
+          : " w-full transition duration-1000 ease-in-out z-20 absolute"
       }
     >
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}

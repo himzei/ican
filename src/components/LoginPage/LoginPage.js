@@ -31,12 +31,12 @@ function LoginPage() {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-20 ">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-40 ">
         <div className="max-w-md w-full space-y-8 ">
           <div>
             <img
               className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              src="images/logo.png"
               alt="Workflow"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

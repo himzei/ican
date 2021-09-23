@@ -34,6 +34,7 @@ function MainPage() {
   return (
     <>
       <AutoplaySlider
+        style={{ height: "100vh" }}
         play={true}
         cancelOnInteraction={false} // should stop playing on user interaction
         interval={6000}

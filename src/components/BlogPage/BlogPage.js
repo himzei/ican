@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import firebase from "../../firebase";
 
 function BlogPage() {
   const user = useSelector((state) => state.user.currentUser);
+  const [blogPosts, setBlogPosts] = useState([]);
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("blogs")
+      .onSnapshot((snapshot) => {
+        const posts = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setBlogPosts(posts);
+      });
+  }, []);
 
   return (
     <>
@@ -27,7 +42,7 @@ function BlogPage() {
       </div>
 
       {user?.email === "himzei@email.com" && (
-        <div className="bg-white">
+        <div className="bg-white pt-16">
           <div className="max-w-7xl mx-2 mx-auto flex justify-end ">
             <Link to="/create-blog">
               <span className="border inline-block px-4 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white cursor-pointer rounded-md">
@@ -51,190 +66,33 @@ function BlogPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph1.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                경남 거창대학교 촬영
-              </h3>
-              <h4 className="text-sm mb-4 text-gray-500 h-16">
-                2020년 11월 경남도립거창대하교 현장출력 취업사진 70명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph2.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                성결대학교 취업사진촬영
-              </h3>
-              <h4 className="text-sm  text-gray-500 h-16">
-                2020년 11월 경기도 안양 성결대학교 후보정 취업사진 50명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph3.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                중부대학교 취업사진촬영
-              </h3>
-              <h4 className="text-sm  text-gray-500 h-16">
-                2020년 10월 경기도 고양 중부대학교 현장출력 취업사진촬영 50명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph4.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                전남 순천제일대학 취업사진촬영
-              </h3>
-              <h4 className="text-sm mb-4 text-gray-500 h-16">
-                2020년 10월 전남 순천제일대학 현장출력 취업사진 70명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph2.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                성결대학교 취업사진촬영
-              </h3>
-              <h4 className="text-sm  text-gray-500 h-16">
-                2020년 11월 경기도 안양 성결대학교 후보정 취업사진 50명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph3.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                중부대학교 취업사진촬영
-              </h3>
-              <h4 className="text-sm  text-gray-500 h-16">
-                2020년 10월 경기도 고양 중부대학교 현장출력 취업사진촬영 50명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph1.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                경남 거창대학교 촬영
-              </h3>
-              <h4 className="text-sm mb-4 text-gray-500 h-16">
-                2020년 11월 경남도립거창대하교 현장출력 취업사진 70명
-              </h4>
-            </div>
-          </div>
-          <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
-            <img
-              src="images/photograph/photograph2.jpg"
-              alt="photograph1"
-              style={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-                objectPosition: "bottom",
-              }}
-            />
-            <div className="flex flex-col p-3">
-              <h5 className="text-green-500 text-sm font-medium mb-2">
-                출장촬영
-              </h5>
-              <h3 className="text-xl text-gray-700 font-bold mb-2">
-                성결대학교 취업사진촬영
-              </h3>
-              <h4 className="text-sm  text-gray-500 h-16">
-                2020년 11월 경기도 안양 성결대학교 후보정 취업사진 50명
-              </h4>
-            </div>
-          </div>
+          {blogPosts.map((post) => (
+            <Link to={`/content/${post.id}`} key={post.id}>
+              <div className="rounded-xl border flex flex-col overflow-hidden shadow-md">
+                <img
+                  src={post.attachmentUrl}
+                  alt="photograph1"
+                  style={{
+                    height: "200px",
+                    width: "100%",
+                    objectFit: "cover",
+                    objectPosition: "bottom",
+                  }}
+                />
+                <div className="flex flex-col p-3">
+                  <h5 className="text-green-500 text-sm font-medium mb-2">
+                    {post.category}
+                  </h5>
+                  <h3 className="text-xl text-gray-700 font-bold mb-2">
+                    {post.title}
+                  </h3>
+                  <h4 className="text-sm mb-4 text-gray-500 h-16">
+                    {post.content}
+                  </h4>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </>
