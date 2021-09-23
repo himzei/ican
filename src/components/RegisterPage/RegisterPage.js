@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { useForm } from "react-hook-form";
 import firebase from "../../firebase";
@@ -7,6 +7,7 @@ import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
 import md5 from "md5";
 
 function RegisterPage() {
+  const history = useHistory();
   const [errorFromSubmit, setErrorFromSubmit] = useState("");
   const [loading, setLoading] = useState(false);
   const { register, watch, errors, handleSubmit } = useForm({
@@ -39,6 +40,7 @@ function RegisterPage() {
       });
 
       setLoading(false);
+      history.push("/");
     } catch (error) {
       setErrorFromSubmit(error.message);
       setLoading(false);

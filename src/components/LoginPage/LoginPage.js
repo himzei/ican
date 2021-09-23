@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import firebase from "../../firebase";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
 
 function LoginPage() {
+  const history = useHistory();
   const [errorFromSubmit, setErrorFromSubmit] = useState("");
   const [loading, setLoading] = useState(false);
   const { register, errors, handleSubmit } = useForm({
@@ -20,6 +21,7 @@ function LoginPage() {
         .auth()
         .signInWithEmailAndPassword(data.email, data.password);
       setLoading(false);
+      history.push("/");
     } catch (error) {
       setErrorFromSubmit(error.message);
       setLoading(false);

@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 import firebase from "../../firebase";
 import { GoX } from "react-icons/go";
 import { v4 as uuidv4 } from "uuid";
+import { useHistory } from "react-router-dom";
 
 function CreateBlog() {
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm({ mode: "onChange" });
   const [attachment, setAttachment] = useState("");
+  const history = useHistory();
 
   const onClearAttachment = () => setAttachment("");
 
@@ -50,6 +52,7 @@ function CreateBlog() {
       });
 
       setLoading(false);
+      history.push("/blog");
     } catch (error) {
       alert(error);
     }
