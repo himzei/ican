@@ -12,7 +12,7 @@ const navigation = [
   { name: "출장촬영", href: "/photograph", current: false },
   { name: "화상영어", href: "#", current: false },
   { name: "블로그", href: "/blog", current: false },
-  { name: "CONTACT", href: "contact", current: false },
+  { name: "CONTACT", href: "/contact", current: false },
 ];
 
 function classNames(...classes) {
