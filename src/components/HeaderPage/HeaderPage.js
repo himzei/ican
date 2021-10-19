@@ -10,7 +10,7 @@ const navigation = [
   { name: "HOME", href: "/", current: false },
   { name: "스터디룸", href: "/studyroom", current: false },
   { name: "출장촬영", href: "/photograph", current: false },
-  { name: "화상영어", href: "#", current: false },
+  { name: "화상영어", href: "/education", current: false },
   { name: "블로그", href: "/blog", current: false },
   { name: "CONTACT", href: "/contact", current: false },
 ];
@@ -44,7 +44,7 @@ function HeaderPage() {
       className={
         navbar
           ? " w-full transition duration-1000 ease-in-out sticky-top z-20 bg-white absolute"
-          : " w-full transition duration-1000 ease-in-out z-20 absolute"
+          : " w-full transition duration-1000 ease-in-out z-20 absolute "
       }
     >
       {({ open }) => (

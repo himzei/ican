@@ -15,6 +15,7 @@ import BlogPage from "./components/BlogPage/BlogPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import CreateBlog from "./components/BlogPage/CreateBlog";
 import ContentBlog from "./components/BlogPage/ContentBlog";
+import EducationPage from "./components/EducationPage/EducationPage";
 
 function App() {
   let history = useHistory();
@@ -48,6 +49,7 @@ function App() {
           <Route exact path="/profile" component={ProfilePage} />
           <Route exact path="/create-blog" component={CreateBlog} />
           <Route exact path="/content/:id" component={ContentBlog} />
+          <Route exact path="/education" component={EducationPage} />
         </Switch>
         <TailPage />
       </>
