@@ -237,7 +237,6 @@ function EducationPage() {
                 강화 보완합니다.
               </div>
             </div>
-
             <div className="p-3 rounded-lg flex flex-col items-col justify-center items-center">
               <div className="mb-4">
                 <AiFillSetting className="text-gray-700" size="60" />
@@ -247,7 +246,6 @@ function EducationPage() {
                 학생을 관리하고, 매주/매월 테스트를 통해 성취도를 점검
               </div>
             </div>
-
             <div className="p-3 rounded-lg flex flex-col items-col justify-center items-center">
               <div className="mb-4">
                 <VscFeedback className="text-gray-700" size="60" />
@@ -256,6 +254,95 @@ function EducationPage() {
               <div className="text-lg text-gray-500 text-center tracking-tighter">
                 학생의 종합적 상황분석하고, 학부모/학생과 상담 후 다음단계의
                 수업을 진행
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="py-24 bg-white ">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="flex flex-col divide-y-2">
+                <div className="p-4">
+                  <h3 className="text-4xl text-gray-700 font-extrabold mb-2">
+                    Meet Our Teachers
+                  </h3>
+                  <h4 className="text-xl font-light tracking-tight text-gray-500 h-16 mb-4">
+                    모든 강좌를 현지 연수센터에서 강의하는 방식대로 공부할 수
+                    있으며, 수년간 축척된 노하우가 집약되어 개발된 교재를
+                    기반으로 수업을 받을 수 있습니다.
+                  </h4>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div className="p-4 flex">
+                  <div
+                    className="rounded-full w-20 h-20"
+                    style={{
+                      backgroundImage: "url('images/education/teacher1.jpeg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="flex flex-col ml-6 justify-center">
+                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-lg font-bold text-green-500">
+                      Alexandra Choi
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 flex">
+                  <div
+                    className="rounded-full w-20 h-20"
+                    style={{
+                      backgroundImage: "url('images/education/teacher2.jpeg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="flex flex-col ml-6 justify-center">
+                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-lg font-bold text-green-500">
+                      Alexandra Choi
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div className="p-4 flex">
+                  <div
+                    className="rounded-full w-20 h-20"
+                    style={{
+                      backgroundImage: "url('images/education/teacher3.jpeg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="flex flex-col ml-6 justify-center">
+                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-lg font-bold text-green-500">
+                      Alexandra Choi
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 flex">
+                  <div
+                    className="rounded-full w-20 h-20"
+                    style={{
+                      backgroundImage: "url('images/education/teacher4.jpeg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="flex flex-col ml-6 justify-center">
+                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-lg font-bold text-green-500">
+                      Alexandra Choi
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
