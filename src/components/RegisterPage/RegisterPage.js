@@ -60,6 +60,7 @@ function RegisterPage() {
     }
     const data = await firebase.auth().signInWithPopup(provider);
     console.log(data);
+    history.push("/");
   };
 
   return (

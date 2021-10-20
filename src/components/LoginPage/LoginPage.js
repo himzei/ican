@@ -30,6 +30,19 @@ function LoginPage() {
       }, 5000);
     }
   };
+  const onSocialClick = async (name) => {
+    let provider;
+    if (name === "google") {
+      provider = new firebase.auth.GoogleAuthProvider();
+    } else if (name === "twitter") {
+      provider = new firebase.auth.TwitterAuthProvider();
+    } else if (name === "facebook") {
+      provider = new firebase.auth.FacebookAuthProvider();
+    }
+    const data = await firebase.auth().signInWithPopup(provider);
+    console.log(data);
+    history.push("/");
+  };
 
   return (
     <>
@@ -162,13 +175,22 @@ function LoginPage() {
             </div>
 
             <div className="grid grid-cols-3 gap-x-2">
-              <div className="border-2 rounded-md py-2 text-xl text-gray-500 flex justify-center">
+              <div
+                className="border-2 rounded-md py-2 text-xl text-gray-500 flex justify-center"
+                onClick={() => onSocialClick("facebook")}
+              >
                 <FaFacebook />
               </div>
-              <div className="border-2 rounded-md py-2 text-xl text-gray-500 flex justify-center">
+              <div
+                className="border-2 rounded-md py-2 text-xl text-gray-500 flex justify-center"
+                onClick={() => onSocialClick("twitter")}
+              >
                 <FaTwitter />
               </div>
-              <div className="border-2 rounded-md py-2 text-xl text-gray-500 flex justify-center">
+              <div
+                className="border-2 rounded-md py-2 text-xl text-gray-500 flex justify-center"
+                onClick={() => onSocialClick("google")}
+              >
                 <FaGoogle />
               </div>
             </div>
