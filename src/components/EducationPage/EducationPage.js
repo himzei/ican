@@ -1,5 +1,9 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
+import { IoIosPaper } from "react-icons/io";
+import { MdComputer } from "react-icons/md";
+import { AiFillSetting } from "react-icons/ai";
+import { VscFeedback } from "react-icons/vsc";
 
 function EducationPage() {
   return (
@@ -205,6 +209,53 @@ function EducationPage() {
                     피드백 제공
                   </dd>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-100">
+        <div className="max-w-2xl mx-auto py-16 px-2 items-center gap-x-8 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 mt-10">
+            <div className="p-3 rounded-lg flex flex-col items-col justify-center items-center">
+              <div className="mb-4">
+                <IoIosPaper className="text-gray-700" size="60" />
+              </div>
+              <div className="text-xl font-bold mb-2">학생진단</div>
+              <div className="text-lg text-gray-500 text-center tracking-tighter">
+                레벨테스트를 통해 분석하고 강의를 디자인합니다.
+              </div>
+            </div>
+            <div className="p-3 rounded-lg flex flex-col items-col justify-center items-center">
+              <div className="mb-4">
+                <MdComputer className="text-gray-700" size="60" />
+              </div>
+              <div className="text-xl font-bold mb-2">강의진행</div>
+              <div className="text-lg text-gray-500 text-center tracking-tighter">
+                디자인된 강의를 진행하고, 강의 중 나타난 학생의 강점과 약점을
+                강화 보완합니다.
+              </div>
+            </div>
+
+            <div className="p-3 rounded-lg flex flex-col items-col justify-center items-center">
+              <div className="mb-4">
+                <AiFillSetting className="text-gray-700" size="60" />
+              </div>
+              <div className="text-xl font-bold mb-2">학습관리 </div>
+              <div className="text-lg text-gray-500 text-center tracking-tighter">
+                학생을 관리하고, 매주/매월 테스트를 통해 성취도를 점검
+              </div>
+            </div>
+
+            <div className="p-3 rounded-lg flex flex-col items-col justify-center items-center">
+              <div className="mb-4">
+                <VscFeedback className="text-gray-700" size="60" />
+              </div>
+              <div className="text-xl font-bold mb-2">정기상담 </div>
+              <div className="text-lg text-gray-500 text-center tracking-tighter">
+                학생의 종합적 상황분석하고, 학부모/학생과 상담 후 다음단계의
+                수업을 진행
               </div>
             </div>
           </div>
