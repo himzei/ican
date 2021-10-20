@@ -287,9 +287,9 @@ function EducationPage() {
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-xl font-bold">강사</div>
                     <div className="text-lg font-bold text-green-500">
-                      Alexandra Choi
+                      화상 영어교육센터
                     </div>
                   </div>
                 </div>
@@ -303,9 +303,9 @@ function EducationPage() {
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-xl font-bold">강사</div>
                     <div className="text-lg font-bold text-green-500">
-                      Alexandra Choi
+                      화상 영어교육센터
                     </div>
                   </div>
                 </div>
@@ -321,9 +321,9 @@ function EducationPage() {
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-xl font-bold">강사</div>
                     <div className="text-lg font-bold text-green-500">
-                      Alexandra Choi
+                      화상 영어교육센터
                     </div>
                   </div>
                 </div>
@@ -337,9 +337,9 @@ function EducationPage() {
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">Alexandra Choi</div>
+                    <div className="text-xl font-bold">강사</div>
                     <div className="text-lg font-bold text-green-500">
-                      Alexandra Choi
+                      화상 영어교육센터
                     </div>
                   </div>
                 </div>
