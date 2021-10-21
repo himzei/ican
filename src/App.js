@@ -16,6 +16,8 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import CreateBlog from "./components/BlogPage/CreateBlog";
 import ContentBlog from "./components/BlogPage/ContentBlog";
 import EducationPage from "./components/EducationPage/EducationPage";
+import CreateMember from "./components/StatusPage/CreateMember";
+import UpdateMember from "./components/StatusPage/UpdateMember";
 
 function App() {
   let history = useHistory();
@@ -50,6 +52,8 @@ function App() {
           <Route exact path="/create-blog" component={CreateBlog} />
           <Route exact path="/content/:id" component={ContentBlog} />
           <Route exact path="/education" component={EducationPage} />
+          <Route exact path="/create-member" component={CreateMember} />
+          <Route exact path="/update-member/:id" component={UpdateMember} />
         </Switch>
         <TailPage />
       </>

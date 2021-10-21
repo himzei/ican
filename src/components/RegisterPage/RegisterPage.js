@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { LockClosedIcon } from "@heroicons/react/solid";
 import { useForm } from "react-hook-form";
-import firebase from "../../firebase";
 import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
+import { LockClosedIcon } from "@heroicons/react/solid";
 import md5 from "md5";
+import firebase from "../../firebase";
 
 function RegisterPage() {
   const history = useHistory();
@@ -36,7 +36,7 @@ function RegisterPage() {
         name: createdUser.user.displayName,
         image: createdUser.user.photoURL,
         email: createdUser.user.email,
-        types: "normal",
+        rank: "normal",
       });
 
       setLoading(false);
@@ -49,7 +49,9 @@ function RegisterPage() {
       }, 5000);
     }
   };
+
   const onSocialClick = async (name) => {
+    setLoading(true);
     let provider;
     if (name === "google") {
       provider = new firebase.auth.GoogleAuthProvider();
@@ -58,8 +60,16 @@ function RegisterPage() {
     } else if (name === "facebook") {
       provider = new firebase.auth.FacebookAuthProvider();
     }
-    const data = await firebase.auth().signInWithPopup(provider);
-    console.log(data);
+
+    let createdUser = await firebase.auth().signInWithPopup(provider);
+    console.log(createdUser);
+    await firebase.database().ref("users").child(createdUser.user.uid).set({
+      name: createdUser.user.displayName,
+      image: createdUser.user.photoURL,
+      email: createdUser.user.email,
+      rank: "normal",
+    });
+    setLoading(false);
     history.push("/");
   };
 

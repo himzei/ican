@@ -1,10 +1,101 @@
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import mime from "mime-types";
 import firebase from "../../firebase";
 import { setPhotoURL } from "../../redux/actions/user_action";
+import Moment from "moment";
+import CountDday from "./CountDday";
+import ArraysDays from "./ArraysDays";
+import ProfileTitle from "./ProfileTitle";
 
 function ProfilePage() {
+  const [people, setPeople] = useState([]);
+  const [count, setCount] = useState(0);
+
+  const onHoldClick = (lecEnd, dates, id, lecHold) => {
+    const ok = window.confirm(
+      "홀드 처리하겠습니까? 되돌릴 수 없어요.\n수업종료 날짜가 수정이 되고, 홀드가 1 추가 됩니다."
+    );
+    if (ok) {
+      const lecEndNum = Moment(lecEnd).format("d");
+      const datesNum = dates.reduce((acc, cur, i) => {
+        if (cur !== false) acc.push(i + 1);
+        return acc;
+      }, []);
+
+      console.log(lecEndNum);
+      console.log(datesNum);
+
+      const num = datesNum.indexOf(lecEndNum);
+      const len = datesNum.length;
+
+      let result = 0;
+      if (num !== -1) {
+        if (num + 1 >= len) {
+          // Case 1
+          result = datesNum[0];
+        } else {
+          // Case 2
+          result = datesNum[num + 1];
+        }
+      } else {
+        const tmpArray = datesNum.filter((date) => date > lecEndNum);
+        if (tmpArray.length >= 1) {
+          // Case 3
+          result = tmpArray[0];
+        } else {
+          // Case 4
+          result = datesNum[0];
+        }
+      }
+
+      let diff = 0;
+      if (lecEndNum >= datesNum.slice(-1)[0]) {
+        diff = 7 - lecEndNum + result;
+      } else {
+        diff = result - lecEndNum;
+      }
+
+      const formatDate = new Date(lecEnd);
+
+      const resultDate = Moment(
+        formatDate.setDate(formatDate.getDate() + diff)
+      ).format("YYYY-MM-DD");
+
+      firebase
+        .firestore()
+        .collection("lectures")
+        .doc(`${id}`)
+        .update({
+          lecEnd: resultDate,
+          lecHold: lecHold + 1,
+        });
+    }
+  };
+
+  const onDeleteClick = async (id) => {
+    const ok = window.confirm("삭제하시겠습니까?");
+    if (ok) {
+      await firebase.firestore().collection("lectures").doc(`${id}`).delete();
+    }
+  };
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("lectures")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const posts = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPeople(posts);
+        setCount(posts.length);
+      });
+  }, []);
+
   const inputOpenImageRef = useRef();
 
   const user = useSelector((state) => state.user.currentUser);
@@ -46,92 +137,347 @@ function ProfilePage() {
 
   return (
     <>
-      <div
-        className="bg-white w-full h-96 flex justify-center items-center"
-        style={{
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1476169785137-3bfe32e30ee1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')",
-        }}
-      >
-        <div className="flex flex-col">
-          <h1 className="font-extrabold text-gray-500 text-4xl text-center">
-            프로필
-          </h1>
-          <h2 className="text-lg text-gray-500 font-light text-center">
-            #출장취업사진 #출장증명사진 #출장이력서사진 #출장프로필사진
-            #박람회취업사진 <br />
-            #박람회이력서사진 #박람회증명사진 #대학취업사진 #대학이력서사진
-          </h2>
+      <ProfileTitle />
+
+      <div className="py-16 flex flex-col">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="px-2 sm:px-0">
+            <h3 className="text-lg font-medium leading-6 text-gray-900">
+              <span className="text-green-600">화</span>상영어 강의
+            </h3>
+            <p className="mt-1 text-sm text-gray-600">
+              화상영어 강의 진행상태 정보를 확인할 수 있습니다.
+            </p>
+            <h3 className="text-green-600 -mt-6">_</h3>
+          </div>
+        </div>
+        <div className="flex mb-4 mr-4 justify-end ">
+          <Link to="create-member">
+            <div className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              등록하기
+            </div>
+          </Link>
+        </div>
+        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50 border-1">
+                  <tr>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center border-1"
+                    >
+                      No
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center border-1"
+                    >
+                      <div className="text-sm font-medium text-gray-900">
+                        최초등록
+                      </div>
+                      <div className="text-sm font-medium text-gray-900">
+                        업데이트
+                      </div>
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3 text-sm font-medium text-gray-900 uppercase tracking-wider text-center border-1"
+                    >
+                      수업정보
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3 text-sm font-medium text-gray-900 uppercase tracking-wider text-center border-1"
+                    >
+                      학생정보
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3 text-sm font-medium text-gray-900 uppercase tracking-wider text-center border-1"
+                    >
+                      수업강사
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3  text-xs text-gray-500 uppercase tracking-wider text-center border-1"
+                    >
+                      <div className="text-sm font-medium text-gray-900">
+                        수업기간
+                      </div>
+                      <div className="text-sm font-medium text-gray-900">
+                        남은날짜
+                      </div>
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3 text-xs  text-gray-500 uppercase tracking-wider text-center border-1"
+                    >
+                      <div className="text-sm font-medium text-gray-900">
+                        수업요일
+                      </div>
+                      <div className="text-sm font-medium text-gray-900">
+                        수업시간
+                      </div>
+                    </th>
+                    <th
+                      colspan="2"
+                      scope="col"
+                      className=" px-4 text-center py-1 text-sm font-medium text-gray-900 border-1"
+                    >
+                      수업횟수
+                    </th>
+                    <th
+                      colspan="3"
+                      scope="col"
+                      className=" px-4 text-center py-1 text-sm font-medium text-gray-900 border-1"
+                    >
+                      출결
+                    </th>
+                    <th
+                      colspan="3"
+                      scope="col"
+                      className=" px-4 text-center py-1 text-sm font-medium text-gray-900 border-1"
+                    >
+                      홀드
+                    </th>
+                    <th
+                      rowspan="2"
+                      scope="col"
+                      className="px-4 py-3  text-xs text-gray-500 uppercase tracking-wider text-center border-1"
+                    ></th>
+                  </tr>
+                  <tr className="">
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">전체</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">남은</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">출석</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">결석</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">홀드</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">S</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">T</span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-1 text-center text-sm font-medium text-gray-900 border-1"
+                    >
+                      <span className="">A</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {people.map((person, index) => (
+                    <tr key={person.id}>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                        {count - index}
+                      </td>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                        <div className="text-sm text-gray-900">
+                          {Moment(person.createdAt).format("YYYY-MM-DD")}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {Moment(person.updateddAt).format("YYYY-MM-DD")}
+                        </div>
+                      </td>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                        {person.lecTitle}
+                      </td>
+                      <td className="px-3 py-4 whitespace-nowrap">
+                        <div className="flex items-center justify-center">
+                          <div className="flex-shrink-0 h-10 w-10">
+                            <img
+                              className="h-10 w-10 rounded-full"
+                              src={person.sImage}
+                              alt=""
+                            />
+                          </div>
+                          <div className="ml-4">
+                            <div className="text-sm font-medium text-gray-900">
+                              {person.sName}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              {person.sEmail}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-3 py-4 whitespace-nowrap text-center">
+                        {person.lecTeacher}
+                      </td>
+                      <td className="px-3 py-4 whitespace-nowrap text-center">
+                        <div className="text-sm font-medium text-gray-900">
+                          {person.lecStart}~{person.lecEnd}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          <CountDday dday={person.lecEnd} />
+                        </div>
+                      </td>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                        <div className="text-sm font-medium text-gray-900">
+                          {[
+                            person.lecDate1,
+                            person.lecDate2,
+                            person.lecDate3,
+                            person.lecDate4,
+                            person.lecDate5,
+                            person.lecDate6,
+                            person.lecDate7,
+                          ]}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {person.lecPeriod}
+                        </div>
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm font-medium">
+                        <ArraysDays
+                          startDate={person.lecStart}
+                          endDate={person.lecEnd}
+                          lecDate={[
+                            person.lecDate1,
+                            person.lecDate2,
+                            person.lecDate3,
+                            person.lecDate4,
+                            person.lecDate5,
+                            person.lecDate6,
+                            person.lecDate7,
+                          ]}
+                          lecHold={person.lecHold}
+                        />
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm font-medium">
+                        <ArraysDays
+                          startDate={
+                            Moment(new Date()).format("YYYY-MM-DD") >
+                            person.lecStart
+                              ? Moment(new Date()).format("YYYY-MM-DD")
+                              : person.lecStart
+                          }
+                          endDate={person.lecEnd}
+                          lecDate={[
+                            person.lecDate1,
+                            person.lecDate2,
+                            person.lecDate3,
+                            person.lecDate4,
+                            person.lecDate5,
+                            person.lecDate6,
+                            person.lecDate7,
+                          ]}
+                          lecHold={person.lecHold}
+                        />
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm font-medium "></td>
+                      <td className="px-3 py-4 text-center text-sm font-medium "></td>
+                      <td className="px-3 py-4 text-center text-sm font-medium ">
+                        {person.lecHold}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm font-medium "></td>
+                      <td className="px-3 py-4 text-center text-sm font-medium "></td>
+                      <td className="px-3 py-4 text-center text-sm font-medium "></td>
+                      <td className="px-3 py-4 text-center text-sm font-medium">
+                        <div className="flex flex-col">
+                          <div
+                            className="bg-blue-500 py-1 px-1 rounded text-white mb-1"
+                            onClick={() =>
+                              onHoldClick(
+                                person.lecEnd,
+                                [
+                                  person.lecDate1,
+                                  person.lecDate2,
+                                  person.lecDate3,
+                                  person.lecDate4,
+                                  person.lecDate5,
+                                  person.lecDate6,
+                                  person.lecDate7,
+                                ],
+                                person.id,
+                                person.lecHold
+                              )
+                            }
+                          >
+                            홀드하기
+                          </div>
+                          <Link to={`update-member/${person.id}`}>
+                            <div className="bg-green-400 py-1 px-1 rounded text-white mb-1">
+                              수정하기
+                            </div>
+                          </Link>
+
+                          <div
+                            className="bg-red-500 py-1 px-1 rounded text-white"
+                            onClick={() => onDeleteClick(person.id)}
+                          >
+                            삭제하기
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-2 md:grid md:grid-cols-3 md:gap-6">
-          <div className="mt-5 md:col-span-1">
-            <div className="px-4 sm:px-0">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">
-                Profile
-              </h3>
-              <p className="mt-1 text-sm text-gray-600">
-                This information will be displayed publicly so be careful what
-                you share.
-              </p>
-            </div>
+          <div className="px-2 sm:px-0">
+            <h3 className="text-lg font-medium leading-6 text-gray-900">
+              <span className="text-green-600">프</span>로필
+            </h3>
+            <p className="mt-1 text-sm text-gray-600">
+              화면에 보여지는 정보입니다. 이메일은 수정 할 수 없어요.
+            </p>
+            <h3 className="text-green-600 -mt-6">_</h3>
           </div>
-          <div className="mt-5 md:mt-0 md:col-span-2">
+          <div className=" md:mt-0 md:col-span-3">
             <form>
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-                  <div className="grid grid-cols-3 gap-6">
-                    <div className="col-span-3 sm:col-span-2">
-                      <label
-                        htmlFor="company-website"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Website
-                      </label>
-                      <div className="mt-1 flex rounded-md shadow-sm">
-                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                          http://
-                        </span>
-                        <input
-                          type="text"
-                          name="company-website"
-                          id="company-website"
-                          className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                          placeholder="www.example.com"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="about"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      About
-                    </label>
-                    <div className="mt-1">
-                      <textarea
-                        id="about"
-                        name="about"
-                        rows={3}
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                        placeholder="you@example.com"
-                        defaultValue={""}
-                      />
-                    </div>
-                    <p className="mt-2 text-sm text-gray-500">
-                      Brief description for your profile. URLs are hyperlinked.
-                    </p>
-                  </div>
-
                   <div>
                     <label className="block text-sm font-medium text-gray-700">
-                      Photo
+                      프로필 사진
                     </label>
                     <div className="mt-1 flex items-center">
                       {user?.photoURL ? (
@@ -165,91 +511,13 @@ function ProfilePage() {
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Cover photo
-                    </label>
-                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                      <div className="space-y-1 text-center">
-                        <svg
-                          className="mx-auto h-12 w-12 text-gray-400"
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 48 48"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <div className="flex text-sm text-gray-600">
-                          <label
-                            htmlFor="file-upload"
-                            className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="file-upload"
-                              name="file-upload"
-                              type="file"
-                              className="sr-only"
-                            />
-                          </label>
-                          <p className="pl-1">or drag and drop</p>
-                        </div>
-                        <p className="text-xs text-gray-500">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button
-                    type="submit"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Save
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-gray-100 hidden sm:block" aria-hidden="true">
-        <div className="">
-          <div className="border-t border-gray-200" />
-        </div>
-      </div>
-
-      <div className="bg-gray-100 pt-4 pb-16 sm:mt-0">
-        <div className="max-w-7xl mx-auto px-2  md:grid md:grid-cols-3 md:gap-6">
-          <div className="mt-5 md:col-span-1">
-            <div className="px-4 sm:px-0">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">
-                Personal Information
-              </h3>
-              <p className="mt-1 text-sm text-gray-600">
-                Use a permanent address where you can receive mail.
-              </p>
-            </div>
-          </div>
-          <div className="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
-              <div className="shadow overflow-hidden sm:rounded-md">
-                <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
                         htmlFor="first-name"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        First name
+                        이름
                       </label>
                       <input
                         type="text"
@@ -257,7 +525,7 @@ function ProfilePage() {
                         id="first-name"
                         value={user?.displayName}
                         autoComplete="given-name"
-                        className="px-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-sm"
                       />
                     </div>
 
@@ -266,14 +534,14 @@ function ProfilePage() {
                         htmlFor="last-name"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Last name
+                        영어이름
                       </label>
                       <input
                         type="text"
                         name="last-name"
                         id="last-name"
                         autoComplete="family-name"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-sm"
                       />
                     </div>
 
@@ -282,96 +550,16 @@ function ProfilePage() {
                         htmlFor="email-address"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Email address
+                        이메일
                       </label>
                       <input
+                        disabled
                         type="text"
                         value={user?.email}
                         name="email-address"
                         id="email-address"
                         autoComplete="email"
-                        className="px-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-
-                    <div className="col-span-6 sm:col-span-3">
-                      <label
-                        htmlFor="country"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Country / Region
-                      </label>
-                      <select
-                        id="country"
-                        name="country"
-                        autoComplete="country"
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      >
-                        <option>United States</option>
-                        <option>Canada</option>
-                        <option>Mexico</option>
-                      </select>
-                    </div>
-
-                    <div className="col-span-6">
-                      <label
-                        htmlFor="street-address"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Street address
-                      </label>
-                      <input
-                        type="text"
-                        name="street-address"
-                        id="street-address"
-                        autoComplete="street-address"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-
-                    <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                      <label
-                        htmlFor="city"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        City
-                      </label>
-                      <input
-                        type="text"
-                        name="city"
-                        id="city"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-
-                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                      <label
-                        htmlFor="state"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        State / Province
-                      </label>
-                      <input
-                        type="text"
-                        name="state"
-                        id="state"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-
-                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                      <label
-                        htmlFor="postal-code"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        ZIP / Postal
-                      </label>
-                      <input
-                        type="text"
-                        name="postal-code"
-                        id="postal-code"
-                        autoComplete="postal-code"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-sm"
                       />
                     </div>
                   </div>

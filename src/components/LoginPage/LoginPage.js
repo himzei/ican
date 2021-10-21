@@ -30,6 +30,7 @@ function LoginPage() {
       }, 5000);
     }
   };
+
   const onSocialClick = async (name) => {
     let provider;
     if (name === "google") {
