@@ -37,7 +37,7 @@ ReactDOM.render(
         <Router>
           <App>
             <Helmet>
-              <title>종만세무</title>
+              <title>아이캔</title>
             </Helmet>
           </App>
         </Router>

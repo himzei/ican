@@ -15,7 +15,6 @@ function LoginPage() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data.password);
       setLoading(true);
       await firebase
         .auth()
@@ -40,8 +39,7 @@ function LoginPage() {
     } else if (name === "facebook") {
       provider = new firebase.auth.FacebookAuthProvider();
     }
-    const data = await firebase.auth().signInWithPopup(provider);
-    console.log(data);
+    await firebase.auth().signInWithPopup(provider);
     history.push("/");
   };
 

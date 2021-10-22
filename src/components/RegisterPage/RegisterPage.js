@@ -8,6 +8,7 @@ import firebase from "../../firebase";
 
 function RegisterPage() {
   const history = useHistory();
+
   const [errorFromSubmit, setErrorFromSubmit] = useState("");
   const [loading, setLoading] = useState(false);
   const { register, watch, errors, handleSubmit } = useForm({
@@ -62,13 +63,14 @@ function RegisterPage() {
     }
 
     let createdUser = await firebase.auth().signInWithPopup(provider);
-    console.log(createdUser);
+
     await firebase.database().ref("users").child(createdUser.user.uid).set({
       name: createdUser.user.displayName,
       image: createdUser.user.photoURL,
       email: createdUser.user.email,
       rank: "normal",
     });
+
     setLoading(false);
     history.push("/");
   };
