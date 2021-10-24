@@ -67,10 +67,10 @@ function UpdateMember() {
     <>
       <ProfileTitle />
       <div>
-        <div className=" max-w-5xl mx-auto">
+        <div className="max-w-7xl my-16 mx-auto">
           <div className="mt-4 md:mt-0 md:col-span-2">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="sm:rounded-md sm:overflow-hidden">
+              <div className="shadow border rounded-sm sm:rounded-md sm:overflow-hidden">
                 <div className="px-4 py-5 bg-white space-y-12 sm:p-6">
                   <fieldset>
                     <legend className="text-base font-medium text-gray-900">

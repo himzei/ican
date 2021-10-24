@@ -5,6 +5,7 @@ import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import md5 from "md5";
 import firebase from "../../firebase";
+import dateFormat from "dateformat";
 
 function RegisterPage() {
   const history = useHistory();
@@ -33,12 +34,20 @@ function RegisterPage() {
       });
 
       // 데이터베이스에 저장
-      await firebase.database().ref("users").child(createdUser.user.uid).set({
+      await firebase.firestore().collection("users").add({
+        uid: createdUser.user.uid,
         name: createdUser.user.displayName,
         image: createdUser.user.photoURL,
         email: createdUser.user.email,
+        createdAt: Date.now(),
         rank: "normal",
       });
+      // await firebase.database().ref("users").child(createdUser.user.uid).set({
+      //   name: createdUser.user.displayName,
+      //   image: createdUser.user.photoURL,
+      //   email: createdUser.user.email,
+      //   rank: "normal",
+      // });
 
       setLoading(false);
       history.push("/");
@@ -64,7 +73,8 @@ function RegisterPage() {
 
     let createdUser = await firebase.auth().signInWithPopup(provider);
 
-    await firebase.database().ref("users").child(createdUser.user.uid).set({
+    await firebase.firestore().collection("users").add({
+      uid: createdUser.user.uid,
       name: createdUser.user.displayName,
       image: createdUser.user.photoURL,
       email: createdUser.user.email,
