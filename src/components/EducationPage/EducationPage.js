@@ -348,6 +348,37 @@ function EducationPage() {
           </div>
         </div>
       </div>
+
+      <div className="bg-gray-50">
+        <div className="max-w-7xl mx-auto py-16 px-2 sm:px-6 lg:py-24  lg:flex lg:items-center lg:justify-between">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <span className="block">아이캔 온라인 강의는</span>
+            <span className="block text-green-600">화상영어교육센터!!</span>
+          </h2>
+          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+            <div className="inline-flex rounded-md shadow">
+              <a
+                href="https://liveklass.com/ch/icans"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+              >
+                화상영어교육센터
+              </a>
+            </div>
+            <div className="sr-only ml-3 inline-flex rounded-md shadow">
+              <a
+                href="https://blog.naver.com/PostList.nhn?blogId=himzei&from=postList&categoryNo=70"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-green-500"
+              >
+                네이버블로그
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
