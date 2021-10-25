@@ -25,7 +25,7 @@ function HeaderPage() {
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
-    if (window.scrollY >= 40) {
+    if (window.scrollY >= 80) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -43,15 +43,15 @@ function HeaderPage() {
       as="nav"
       className={
         navbar
-          ? " w-full transition duration-1000 ease-in-out sticky-top z-20 bg-white absolute"
-          : " w-full transition duration-1000 ease-in-out z-20 absolute "
+          ? "absolute sticky-top top-20 backdrop-filter backdrop-white backdrop-blur-md"
+          : "w-full z-30 absolute"
       }
     >
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
-            <div className="relative flex items-center justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div className="w-full max-w-7xl flex items-center justify-between h-16">
+              <div className="inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
