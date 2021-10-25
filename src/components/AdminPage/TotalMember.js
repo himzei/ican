@@ -56,7 +56,7 @@ function TotalMember() {
             <h3 className="text-green-600 -mt-6">_</h3>
           </div>
         </div>
-        <div className="mx-auto w-full sm:-mx-6 lg:-mx-8 px-3">
+        <div className="mx-auto max-w-7xl w-full sm:-mx-6 lg:-mx-8 px-3">
           <div className="min-w-full py-2 align-middle inline-block">
             <div className=" shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <form onSubmit={handleSubmit(onSubmit)}>

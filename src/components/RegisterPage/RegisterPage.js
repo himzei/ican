@@ -5,7 +5,6 @@ import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import md5 from "md5";
 import firebase from "../../firebase";
-import dateFormat from "dateformat";
 
 function RegisterPage() {
   const history = useHistory();
@@ -41,6 +40,7 @@ function RegisterPage() {
         email: createdUser.user.email,
         createdAt: Date.now(),
         rank: "normal",
+        nickname: "",
       });
       // await firebase.database().ref("users").child(createdUser.user.uid).set({
       //   name: createdUser.user.displayName,

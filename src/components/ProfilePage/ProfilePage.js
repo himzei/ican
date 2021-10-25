@@ -7,14 +7,26 @@ import ProfileTitle from "./ProfileTitle";
 import AdminEnglishInfo from "../AdminPage/AdminEnglishInfo";
 import AdminEnglishUser from "../AdminPage/AdminEnglishUser";
 import TotalMember from "../AdminPage/TotalMember";
+import { useForm } from "react-hook-form";
 
 function ProfilePage() {
   // people.map((post) => setEmailList(post.email));
 
   const [dbMember, setDbMember] = useState([]);
   const inputOpenImageRef = useRef();
-
+  const { register, handleSubmit } = useForm();
   const user = useSelector((state) => state.user.currentUser);
+
+  const onSubmit = async (data) => {
+    try {
+      await firebase.firestore().collection("users").doc(`${user.uid}`).update({
+        name: data.name,
+        nickname: data.nickname,
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   const dataGet = async () => {
     const posts = firebase.firestore().collection("users");
@@ -106,7 +118,7 @@ function ProfilePage() {
             <h3 className="text-green-600 -mt-6">_</h3>
           </div>
           <div className=" md:mt-0 md:col-span-3">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                   <div>
@@ -159,22 +171,25 @@ function ProfilePage() {
                         id="first-name"
                         value={user?.displayName}
                         autoComplete="given-name"
+                        ref={register()}
                         className="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-sm"
                       />
                     </div>
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="last-name"
+                        htmlFor="nickname"
                         className="block text-sm font-medium text-gray-700"
                       >
                         영어이름
                       </label>
                       <input
                         type="text"
-                        name="last-name"
-                        id="last-name"
+                        name="nickname"
+                        id="nickname"
+                        value={user?.nickname}
                         autoComplete="family-name"
+                        ref={register()}
                         className="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-sm"
                       />
                     </div>
@@ -201,7 +216,7 @@ function ProfilePage() {
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="submit"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="sr-only inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Save
                   </button>
