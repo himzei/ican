@@ -260,7 +260,16 @@ function EducationPage() {
         </div>
       </div>
 
-      <div className="py-24 bg-white ">
+      <div
+        className="py-24"
+        style={{
+          backgroundAttachment: "fixed",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1581502731280-0ae9b758faf3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3594&q=80')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -277,70 +286,131 @@ function EducationPage() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="p-4 flex">
+                <div className="p-4 flex flex-col items-center">
                   <div
-                    className="rounded-full w-20 h-20"
+                    className="rounded-full w-60 h-60 mb-3"
                     style={{
-                      backgroundImage: "url('images/education/teacher1.jpeg')",
+                      backgroundImage: "url('images/education/teacher1.png')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">강사</div>
-                    <div className="text-lg font-bold text-green-500">
-                      화상 영어교육센터
+                    <div className="text-xl font-bold mb-1">
+                      Erica / 토익, SAT 전문강사
                     </div>
+                    <div className="text-lg font-bold text-green-500 mb-3">
+                      “영어로 배워도 쉽게 이해되는 문법강의”
+                    </div>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Ateneo De Manila University
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Ateneo De Manila University 교육학석사 TESOL 수료
+                    </p>
+                    <p className="text-sm text-gray-500">교육경력 16년</p>
                   </div>
                 </div>
-                <div className="p-4 flex">
+                <div className="p-4 flex flex-col items-center">
                   <div
-                    className="rounded-full w-20 h-20"
+                    className="rounded-full w-60 h-60 mb-3"
                     style={{
-                      backgroundImage: "url('images/education/teacher2.jpeg')",
+                      backgroundImage: "url('images/education/teacher2.png')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">강사</div>
-                    <div className="text-lg font-bold text-green-500">
-                      화상 영어교육센터
+                    <div className="text-xl font-bold mb-1">
+                      Rica / 토익, 토플, 텝스, IELTS 전문강사
                     </div>
+                    <div className="text-lg font-bold text-green-500 mb-3">
+                      “재미있게 실력이 느는 라이팅 강의”
+                    </div>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Univeristiy of the Philippines
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Ateneo De Manila University 교육학 석사 수학
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">
+                      미국 SONY 마케팅팀, CITIBANK 근무 TESOL 수료
+                    </p>
+                    <p className="text-sm text-gray-500">교육경력 13년</p>
+                  </div>
+                </div>
+                <div className="p-4 flex flex-col items-center">
+                  <div
+                    className="rounded-full w-60 h-60 mb-3"
+                    style={{
+                      backgroundImage: "url('images/education/teacher5.png')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="flex flex-col ml-6 justify-center">
+                    <div className="text-xl font-bold mb-1">
+                      LYA / 토익 LC/RC 일대일 지도 전문
+                    </div>
+                    <div className="text-lg font-bold text-green-500 mb-3">
+                      "차분하고 성실한 수업 "
+                    </div>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Fatima University 졸업
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">TESOL 수료</p>
+
+                    <p className="text-sm text-gray-500">교육경력 10년</p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="p-4 flex">
+                <div className="p-4 flex flex-col items-center">
                   <div
-                    className="rounded-full w-20 h-20"
+                    className="rounded-full w-60 h-60"
                     style={{
-                      backgroundImage: "url('images/education/teacher3.jpeg')",
+                      backgroundImage: "url('images/education/teacher3.png')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">강사</div>
-                    <div className="text-lg font-bold text-green-500">
-                      화상 영어교육센터
+                    <div className="text-xl font-bold mb-1">ART</div>
+                    <div className="text-lg font-bold text-green-500 mb-3">
+                      “기초부터 단계적으로 익히는 회화 실력”
                     </div>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Panay State Polytechnic college
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">
+                      다수 어학원에서 헤드티쳐 근무
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">TESOL 수료</p>
+                    <p className="text-sm text-gray-500">교육경력 18년</p>
                   </div>
                 </div>
-                <div className="p-4 flex">
+                <div className="p-4 flex flex-col items-center">
                   <div
-                    className="rounded-full w-20 h-20"
+                    className="rounded-full w-60 h-60"
                     style={{
-                      backgroundImage: "url('images/education/teacher4.jpeg')",
+                      backgroundImage: "url('images/education/teacher4.png')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   ></div>
                   <div className="flex flex-col ml-6 justify-center">
-                    <div className="text-xl font-bold">강사</div>
-                    <div className="text-lg font-bold text-green-500">
-                      화상 영어교육센터
+                    <div className="text-xl font-bold mb-1"> BEBS</div>
+                    <div className="text-lg font-bold text-green-500 mb-3">
+                      “책임감을 가지고 성실하게 지도하는 강의”
                     </div>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Mindanao State University
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">
+                      Univerisitiy of the Philippines 석사과정 수학
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">TESOL 수료</p>
+                    <p className="text-sm text-gray-500">교육경력 12년</p>
                   </div>
                 </div>
               </div>
