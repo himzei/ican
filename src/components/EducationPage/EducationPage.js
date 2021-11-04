@@ -57,7 +57,7 @@ function EducationPage() {
                   </h4>
                   <div className="flex items-end">
                     <h4 className="font-extrabold text-2xl italic ">
-                      ₩110,000
+                      ₩120,000
                       <span className="text-lg text-gray-500 font-bold">
                         (총 20회)
                       </span>
