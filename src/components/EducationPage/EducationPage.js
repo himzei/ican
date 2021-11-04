@@ -413,6 +413,30 @@ function EducationPage() {
                     <p className="text-sm text-gray-500">교육경력 12년</p>
                   </div>
                 </div>
+                <div className="p-4 flex flex-col items-center">
+                  <div
+                    className="rounded-full w-60 h-60"
+                    style={{
+                      backgroundImage: "url('images/education/teacher6.png')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="flex flex-col ml-6 justify-center">
+                    <div className="text-xl font-bold mb-1">Gie</div>
+                    <div className="text-lg font-bold text-green-500 mb-3">
+                      “학생을 편안하게 이끄는 강사”
+                    </div>
+                    <p className="text-sm text-gray-500 mb-1">
+                      National Teachers’ College
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">
+                      National Teachers’ College 졸업
+                    </p>
+                    <p className="text-sm text-gray-500 mb-1">TESOL 수료</p>
+                    <p className="text-sm text-gray-500">교육경력 18년</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
